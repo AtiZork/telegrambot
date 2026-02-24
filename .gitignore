@@ -1,0 +1,58 @@
+# Env and secrets
+.env
+.env.local
+*.pem
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs and local data
+*.log
+app.log
+*.sqlite
+*.db
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Optional (uncomment if used)
+# node_modules/
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
