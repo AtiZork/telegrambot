@@ -1,0 +1,39 @@
+# Admin-editable config for Divergence Alert Microservice
+# Restart the service after editing.
+
+polling:
+  interval_minutes: 10
+  # Rolling window size for z-score (number of previous points)
+  z_score_window: 24
+
+# Default thresholds (used for new users; overridable per user)
+defaults:
+  open_threshold: 2.0    # divergence score above this opens an alert
+  close_threshold: 0.5   # divergence score below this closes the alert
+  cooldown_minutes: 5    # min time before opening a new alert after closing (was 60; reduce if too strict)
+
+# API endpoints (public; no auth required in this demo)
+# Belief-like: e.g. sentiment or prediction index
+series_a:
+  name: "belief"
+  url: "https://api.coingecko.com/api/v3/simple/price"
+  params:
+    ids: "bitcoin"
+    vs_currencies: "usd"
+  value_path: "bitcoin.usd"  # JSON path to numeric value
+
+# Price series (can be same or different market)
+series_b:
+  name: "price"
+  url: "https://api.coingecko.com/api/v3/simple/price"
+  params:
+    ids: "ethereum"
+    vs_currencies: "usd"
+  value_path: "ethereum.usd"
+
+# Telegram bot (token from BotFather)
+# telegram:
+#   bot_token: "${TELEGRAM_BOT_TOKEN}"
+
+# Retention: keep snapshots for N days (optional, for pruning)
+retention_days: 30
